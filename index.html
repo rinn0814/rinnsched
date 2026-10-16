@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#031638">
+  <meta name="description" content="View the full weekly school schedule.">
+  <title>BS Electronics Engineering — Weekly Schedule</title>
+  <style>
+    :root { color-scheme: dark; --navy:#031638; --blue:#0d3674; --text:#f8fbff; --muted:#c4d5ef; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 16px 10px 24px; background: var(--navy); color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    main { width: min(100%, 760px); margin: 0 auto; }
+    header { text-align: center; padding: 8px 6px 16px; }
+    h1 { margin: 0 0 6px; font-size: clamp(1.25rem, 4.5vw, 1.9rem); letter-spacing: .03em; }
+    p { margin: 0; color: var(--muted); line-height: 1.5; font-size: .95rem; }
+    .image-wrap {
+      background: #fff; border: 2px solid #4a9ad6; border-radius: 12px;
+      overflow: auto; box-shadow: 0 8px 24px rgba(0,0,0,.25);
+    }
+    img { display: block; width: 100%; height: auto; }
+    .tip { text-align: center; padding: 14px 4px 0; font-size: .88rem; color: var(--muted); }
+    .error { display: none; padding: 22px; text-align: center; color: #222; background: #fff; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>BS Electronics Engineering</h1>
+      <p>1st Year · Weekly Schedule</p>
+    </header>
+    <div class="image-wrap">
+      <img id="schedule" src="schedule.png" alt="Full weekly school schedule for BS Electronics Engineering">
+      <div id="error" class="error">The schedule image could not load. Make sure <strong>schedule.png</strong> is uploaded beside <strong>index.html</strong>.</div>
+    </div>
+    <p class="tip">Tip: Pinch to zoom in to read the class times and room numbers.</p>
+  </main>
+  <script>
+    const schedule = document.getElementById('schedule');
+    const error = document.getElementById('error');
+    schedule.addEventListener('error', () => { schedule.style.display = 'none'; error.style.display = 'block'; });
+    schedule.addEventListener('load', () => { schedule.style.display = 'block'; error.style.display = 'none'; });
+  </script>
+</body>
+</html>
